@@ -5,7 +5,7 @@ This project is based on https://github.com/hpcac/2024-APAC-HPC-AI
 # Reference Results
 ## Performance Metrics
 - Steps per second: This measures how fast the system can simulate particle movements over time
-- Execution time: This shows how long the task takes to complete
+- Execution time (s): This shows how long the task takes to complete
 - Speedup: This measures how much faster a task completes when multiple processors are used compared to using a single processor
 - Efficiency: This measures how effectively the processors are being used in parallel
 
