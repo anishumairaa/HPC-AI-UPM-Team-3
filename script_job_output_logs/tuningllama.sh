@@ -43,8 +43,4 @@ ${HOME}/scratch/workdir/llama/model/litgpt/meta-llama/Llama-2-7b-hf \
 echo ${cmd}
 
 exec ${cmd}
-
-#EleutherAI/pythia-70m \
-#--train.max_steps=1 \
-#--devices=4 --num_nodes=2"
 date
