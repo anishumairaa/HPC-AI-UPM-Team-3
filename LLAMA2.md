@@ -1,5 +1,5 @@
 # Base Code
-Our LLAMA2 are using this as base code  
+Our LLAMA2 is using this as base code  
 We are using ASPIRE2A as our cluster  
 This project is based on [https://github.com/hpcac/2024-APAC-HPC-AI ](https://github.com/hpcac/2024-APAC-HPC-AI/blob/main/3_2_LitGPT_Llama2_Application_Notes_ASPIRE-2A.md)   
 
@@ -94,9 +94,14 @@ Training time (s): This measures how long it takes to complete the training.
 
 ## Results
 ### Baseline
-| Num. of nodes | Num. of GPUs | Num. of CPUs | Num. of Epochs | Global Batch Size | Micro Batch Size | Max Steps |
-|:--------------|:-------------|:-------------|:---------------|:------------------|:-----------------|:----------|
-| 2             | 8            | 128          | 1              | 128               | 32               | 20        |
+| Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
+|:--------------|:-------------|:-------------|:-----------------|:----------------------|
+| 2             | 8            | 128          | 17.73            | 41.57s                |
+
+### Improved script
+| Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
+|:--------------|:-------------|:-------------|:-----------------|:----------------------|
+| 2             | 8            | 128          | 17.73            | 28.09s                |
 
 computing/training/throughput performances  
 improvements  
