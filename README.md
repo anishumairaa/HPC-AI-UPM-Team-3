@@ -3,6 +3,8 @@
 
 Welcome to our project submission for the APAC HPC AI Competition 2024. This README file provides an overview of our project, the methodologies used, and the results obtained.
 
+Please review https://github.com/anishumairaa/HPC-AI-UPM-Team-3
+
 # Team Members
 * Anis Humaira Azman - Team leader
 * Nurul Farizatul Aina Mohammad Farizal
