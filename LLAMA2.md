@@ -76,6 +76,7 @@ and deleted:
 # Reference Results
 ## Performance metrics
 Training time (s): This measures how long it takes to complete the training.  
+Our goal is to lower the training time as much as we can.  
 ## Workload profile
 - Workload: Llama-2-7b finetune-full
 - Max Seq Length: 512
@@ -97,6 +98,7 @@ Training time (s): This measures how long it takes to complete the training.
 | Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
 |:--------------|:-------------|:-------------|:-----------------|:----------------------|
 | 2             | 8            | 128          | 17.73            | 41.57s                |
+
 
 ### Improved script
 | Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
