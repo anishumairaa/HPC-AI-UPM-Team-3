@@ -34,7 +34,7 @@ echo ${cmd}
 
 exec ${cmd}
 ```
-# Execute the job
+# Submit the job
 
 ```
 nodes=32 walltime=00:10:00 \
@@ -44,6 +44,11 @@ bash -c \
 -l walltime=${walltime},ncpus=$((96*nodes)),mem=$((48*nodes*1))gb \
 -N hoomd.nodes${nodes}.WS${warmup_steps}.BS${benchmark_steps} \
 hoomd.sh'
+```
+# Execute Output
+
+```
+cat hoomd.nodes32.WS10000.BS8000.o126506599
 ```
 
 # Output
