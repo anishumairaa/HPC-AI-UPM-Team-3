@@ -98,7 +98,7 @@ Our goal is to lower the training time as much as we can.
 | Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
 |:--------------|:-------------|:-------------|:-----------------|:----------------------|
 | 2             | 8            | 128          | 17.73            | 41.57s                |
-
+Example of script provided is using
 
 ### Improved script
 | Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
