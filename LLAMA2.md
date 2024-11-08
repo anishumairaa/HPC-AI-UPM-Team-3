@@ -181,7 +181,7 @@ These values are constant throughout the performance improvement process.
 |:--------------|:-------------|:-------------|:---------------|:------------------|:-----------------|:----------|
 | 2             | 8            | 128          | 1              | 128               | 32               | 20        |
 
-## Results and advantages
+## Results, improvements, and advantages
 ### Baseline
 | Num. of nodes | Num. of GPUs | Num. of CPUs | Memory Requested | Average Training Time |
 |:--------------|:-------------|:-------------|:-----------------|:----------------------|
