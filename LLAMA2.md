@@ -1,7 +1,7 @@
 # LLAMA2 Base Code
 We are using Aspire2A as our cluster.  
 This project is based on [https://github.com/hpcac/2024-APAC-HPC-AI ](https://github.com/hpcac/2024-APAC-HPC-AI/blob/main/3_2_LitGPT_Llama2_Application_Notes_ASPIRE-2A.md)   
-We are copying baseline code from that github link, and change pbs initialization such as project code and email.  
+We copied baseline code from that github link, and changed the pbs initializations such as project code and email address.  
 The copied `llama.sh` with this content:  
 ```
 #!/bin/bash
