@@ -31,12 +31,12 @@ This project is based on https://github.com/hpcac/2024-APAC-HPC-AI
 
 ## Computing/Training/Throughput Performances  
 The speed increases substantially with the increased number of nodes:
-1 node, 48 cores: 423 steps per second
-32 nodes, 1536 cores: 6431 steps per second
+  - 1 node, 48 cores: 423 steps per seconds
+  - 32 nodes, 1536 cores: 6431 steps per second
 
 The execution time decreases as more nodes were added:
-1 node: 55 seconds
-32 nodes: 14 seconds
+  - 1 node: 55 seconds
+  - 32 nodes: 14 seconds
 
 improvements  
 advantages of your codes  
