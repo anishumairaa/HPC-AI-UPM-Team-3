@@ -29,8 +29,15 @@ This project is based on https://github.com/hpcac/2024-APAC-HPC-AI
 | 16 x 2           | 48 x 16             | 768         | 768                    | 0:14          | 249.8            | 4831             |
 | 32 x 2           | 48 x 32             | 1536        | 1536                   | 0:14          | 494.79           | 6431             |
 
+## Computing/Training/Throughput Performances  
+The speed increases substantially with the increased number of nodes:
+1 node, 48 cores: 423 steps per second
+32 nodes, 1536 cores: 6431 steps per second
 
-computing/training/throughput performances  
+The execution time decreases as more nodes were added:
+1 node: 55 seconds
+32 nodes: 14 seconds
+
 improvements  
 advantages of your codes  
 instructions for result reproduction
