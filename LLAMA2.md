@@ -187,7 +187,7 @@ These values are constant throughout the performance improvement process.
 |:--------------|:-------------|:-------------|:-----------------|:----------------------|
 | 2             | 8            | 128          | 17.73            | 41.57s                |  
 
-This script:
+`llana.sh` script:
 - uses OpenMPI version 4.1.2
 - uses Libfabric
 - uses `mpirun` to do MPI job
@@ -203,7 +203,7 @@ This script:
 |:--------------|:-------------|:-------------|:-----------------|:----------------------|
 | 2             | 8            | 128          | 17.73            | 28.09s                |  
 
-Our script:
+Our `tuningllama.sh` script:
 - uses exact configurations as baseline script, except that,
 - `mpirun` command is using export which makes these variables available globally to all processes
 - disables shared memory communication `NCCL_SHM_DISABLE=1` that will reduce conflicts or contention during processes' communication
