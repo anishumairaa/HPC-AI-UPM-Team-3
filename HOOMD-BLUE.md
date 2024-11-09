@@ -176,28 +176,18 @@ module purge
 module load ${HOME}/hpcx-v2.20-gcc-mlnx_ofed-redhat8-cuda12-x86_64/modulefiles/hpcx-ompi
 ```
 ## Enable MPI Support for HOOMD-blue
-The following commands
-1. To execute the HOOMD-blue benchmark. This command is essential for enabling distributed processing across multiple nodes using MPI. 
-`cmd="time mpirun \`
-2. The `-host ${hosts}` option in mpirun specifies the nodes on which to run the MPI job.
-3. The `-x PYTHONPATH` option sets the `PYTHONPATH` environment variable to include the paths necessary for the MPI-enabled HOOMD-blue build, allowing Python to locate the MPI-enabled modules.
-4. This line runs a HOOMD-blue benchmark script in Python with MPI, leveraging MPI for parallel execution across nodes.
-`${HOME}/scratch/workdir/hoomd/hoomd.py312/bin/python \
-    -m hoomd_benchmarks.md_pair_wca \`
-6. This command controls how MPI maps processes per node, allowing balanced CPU usage across the allocated nodes.
-`-map-by ppr:$((1*${NCPUS})):node \`
-
-
-# Prepare Dataset and HOOMD-blue Configuration
-
-## Get Dataset and Model files
-
-The HOOMD-blue module files are available in the shared storage directory
+1. Load administrator-provided Environment modules to configure environment variables for running shell
+2. Run the command with `mpirun`, which is the MPI execution command.
 ```
+module load ${HOME}/hpcx-v2.20-gcc-mlnx_ofed-redhat8-cuda12-x86_64/modulefiles/hpcx-ompi
+
+cmd="time mpirun \
+    -host ${hosts} \
+    ...
 ```
 
 ## Configuring parameters
-Please refer to [submit_job_hoomd.txt](https://github.com/anishumairaa/HPC-AI-UPM-Team-3/blob/main/script_job_output_logs/submit_job_hoomd.txt)
+Please refer to [submit_job_hoomd.txt](https://github.com/anishumairaa/HPC-AI-UPM-Team-3/blob/main/script_job_output_logs/submit_job_hoomd.txt)  
 This command is used for configuring initialization parameters such as number of nodes, number of CPUs, benchmark step, warmup step and walltime.
 
 ## Read results
