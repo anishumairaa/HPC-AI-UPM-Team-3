@@ -2,6 +2,7 @@
 This project is based on https://github.com/hpcac/2024-APAC-HPC-AI  
 We're using GCC as a compiler for this project
 
+## PBS Script
 ```
 #!/bin/bash
 #PBS -j oe  
@@ -35,6 +36,18 @@ echo ${cmd}
 
 exec ${cmd}
 
+```
+## Submit job
+```
+cd ${HOME}/run
+
+nodes=8 walltime=00:00:200 \
+warmup_steps=40000 benchmark_steps=80000 repeat=1 N=200000 \
+bash -c \
+'qsub -V \
+-l walltime=${walltime},select=${nodes}:ncpus=$((128*1)):mem=$((128*2))gb \
+-N hoomd.nodes${nodes}.WS${warmup_steps}.BS${benchmark_steps}.N${N} \
+hoomd.sh'
 ```
 
 # Modifications to the code
