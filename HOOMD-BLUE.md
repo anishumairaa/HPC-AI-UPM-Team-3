@@ -155,9 +155,6 @@ This project uses parallel computing to simulate particle movements with High-Pe
 
 - Performance Analysis: Since the setup of the code will enable easy gathering and analysis of performance data, it will provide a complete comparative analysis between configurations.
 
-
-instructions for result reproduction
-
 # Configuration Instructions
 ### Prerequisites
 - **GCC** (version 7.5 or higher) or any other C++ compiler
