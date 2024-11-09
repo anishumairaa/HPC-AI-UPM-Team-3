@@ -274,3 +274,9 @@ Methods to read output file
   
 Check training time  
 `grep "Training time" ${HOME}/run/output/llama.*/1/rank.*/*`
+
+## Testing methods  
+1. Refer to the configuration instructions to set up the environment.  
+2. Create `tuningllama.sh` script in `cd $HOME/run`  
+3. Submit job command using the `submit_job_llama.txt`  
+4. Read output file and check training time as mentioned ealier.  
