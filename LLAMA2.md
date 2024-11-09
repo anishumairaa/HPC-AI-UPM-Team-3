@@ -222,11 +222,12 @@ Our output file for `tuningllama.sh` is in [llama.nodes2.GBS128.MBS32.o8613326](
 - **Python** (version 3.6 or higher)
 
 ### Modules load
+```
 module purge
 module load openmpi/4.1.2-hpe
 module load libfabric/1.11.0.4.125
 env | grep -E 'NCCL|OMP|CUDA'
-
+```
 ## Enable MPI Support for LitGPT Pytorch
 
 The following commands
@@ -263,45 +264,13 @@ time rsync -avSP \
 ${HOME}/scratch/workdir/llama/dataset/
 ```
 
-## Configuring Parameters 
-nodes=2 walltime=7201 \
-global_batch_size=128 micro_batch_size=32 max_steps=20 \
-bash -c \
-'qsub -V \
--l walltime=${walltime},select=${nodes}:ngpus=4 \
--N llama.nodes${nodes}.GBS${global_batch_size}.MBS${micro_batch_size} \
-llama.sh'
+## Configuring parameters
+Please refer to [submit_job_llama.txt ](https://github.com/anishumairaa/HPC-AI-UPM-Team-3/blob/main/script_job_output_logs/submit_job_llama.txt)  
+This command is used for configuring initialization parameters such as number of nodes, number of GPUs, batch size, max steps, and walltime.  
 
-
-# Test Methods
-
-## Command to submit 
-qsub -I -l select=1:ncpus=1:mem=1GB -l walltime=00:05:00
-
-
-## The testing method with reduced time
-#PBS -l walltime=00:05:00 
-#PBS -l select=1:ncpus=4:ngpus=1:mem=16GB  
-
-cmd="mpirun \
--wdir ${HOME}/scratch/workdir/llama \
--output-filename ${HOME}/run/output/${PBS_JOBNAME}.${PBS_JOBID} \
--map-by ppr:1:node -oversubscribe \
--report-bindings \
--x NCCL_DEBUG \
--x NCCL_IB_DISABLE \
--x NCCL_NET_GDR_LEVEL \
--x OMP_NUM_THREADS \
--mca btl ^ucx \
-${HOME}/scratch/workdir/llama/litgpt.py312/bin/litgpt \
-finetune_full \
-${HOME}/scratch/workdir/llama/model/litgpt/meta-llama/Llama-2-7b-hf \
---out_dir ${HOME}/scratch/workdir/llama/out/finetune/full \
---data JSON --data.json_path ${HOME}/scratch/workdir/llama/dataset/alpaca1024 \
---config ${HOME}/scratch/workdir/llama/full.yaml \
---eval.final_validation=false \
---train.epochs=1 \
---devices=1 --num_nodes=1 \
---train.max_steps=10 \
---train.global_batch_size=2 \
---train.micro_batch_size=1"
+## Read results
+Methods to read output file  
+`cat llama.nodes2.GBS128.MBS32.o8613326`  
+  
+Check training time  
+`grep "Training time" ${HOME}/run/output/llama.*/1/rank.*/*`
