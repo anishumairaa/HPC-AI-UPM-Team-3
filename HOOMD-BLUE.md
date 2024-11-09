@@ -1,9 +1,7 @@
-# Base Code
+# HOOMD-Blue Base Code
 This project is based on https://github.com/hpcac/2024-APAC-HPC-AI  
 We copied baseline code from that github link, and changed the pbs initializations such as project code and email address. GCC is being utilized as the compiler for this project.  
 The copied `hoomd.sh` with this content:
-
-## PBS Script
 ```
 #!/bin/bash
 #PBS -j oe  
@@ -42,7 +40,7 @@ exec ${cmd}
 # Modifications to the code 
 The number of nodes, walltime configuration,warmup steps and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration
 
-## Our code Vs Base code
+## Our code vs base code
 Below are the base code according to our reference on https://github.com/hpcac/2024-APAC-HPC-AI  
 
 This configuration allocates:
@@ -80,14 +78,8 @@ bash -c \
 hoomd.sh'
 
 ```
-
-The ```cat hoomd.nodes32.WS10000.BS8000.o126506599``` command is then used to retrieve the output of the submitted job, providing detailed performance metrics for analysis of node scalability and computational efficiency in achieving optimal time steps per second.
-
-```
-cat hoomd.nodes32.WS10000.BS8000.o126506599
-```
-
-
+## Submit jobs
+To submit jobs, we run command in [submit_job_hoomd.txt](https://github.com/anishumairaa/HPC-AI-UPM-Team-3/blob/main/script_job_output_logs/submit_job_hoomd.txt)  
 
 # Reference Results
 ## Performance Metrics
