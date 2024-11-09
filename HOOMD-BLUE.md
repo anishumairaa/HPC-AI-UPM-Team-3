@@ -166,42 +166,49 @@ This project uses parallel computing to simulate particle movements with High-Pe
 instructions for result reproduction
 
 # Configuration Instructions
-Step 1: Setting Up the Environment
+### Prerequisites
+- **GCC** (version 7.5 or higher) or any other C++ compiler
+- **Phyton** (version 3.6 or higher)
+
+### Modules load
 ```
 module purge
 module load ${HOME}/hpcx-v2.20-gcc-mlnx_ofed-redhat8-cuda12-x86_64/modulefiles/hpcx-ompi
 ```
-Purpose: Purging clears the environment, and loading hpcx-ompi includes MPI, GCC, and network support libraries needed for HPC applications.
+## Enable MPI Support for HOOMD-blue
+The following commands
+1. To execute the HOOMD-blue benchmark. This command is essential for enabling distributed processing across multiple nodes using MPI. 
+`cmd="time mpirun \`
+2. The `-host ${hosts}` option in mpirun specifies the nodes on which to run the MPI job.
+3. The `-x PYTHONPATH` option sets the `PYTHONPATH` environment variable to include the paths necessary for the MPI-enabled HOOMD-blue build, allowing Python to locate the MPI-enabled modules.
+4. This line runs a HOOMD-blue benchmark script in Python with MPI, leveraging MPI for parallel execution across nodes.
+`${HOME}/scratch/workdir/hoomd/hoomd.py312/bin/python \
+    -m hoomd_benchmarks.md_pair_wca \`
+6. This command controls how MPI maps processes per node, allowing balanced CPU usage across the allocated nodes.
+`-map-by ppr:$((1*${NCPUS})):node \`
 
-Step 2: Constructing and Running the MPI Command
-```
-hosts=$(sort -u ${PBS_NODEFILE} | paste -sd ',')
-cmd="time mpirun \
-    -host ${hosts} \
-    -wdir ${HOME}/scratch/workdir/hoomd \
-    -output-filename ${HOME}/run/output/${PBS_JOBNAME}.${PBS_JOBID} \
-    -map-by ppr:$((1*${NCPUS})):node \
-    -oversubscribe -use-hwthread-cpus \
-    -x PYTHONPATH=${HOME}/scratch/workdir/hoomd/build/hoomd-openmpi4.1.5:${HOME}/scratch/workdir/hoomd/hoomd-benchmarks \
-    ${HOME}/scratch/workdir/hoomd/build/hoomd_executable \
-    --device CPU -v \
-    -N ${N} --repeat ${repeat} \
-    --warmup_steps ${warmup_steps} --benchmark_steps ${benchmark_steps}"
-```
-- host ${hosts}: Lists the nodes available for the job.
-- wdir: Sets the working directory.
-- output-filename: Directs output to a unique file.
-- map-by ppr:$((1*${NCPUS})):node: Maps one process per core.
-- oversubscribe -use-hwthread-cpus: Allows using more processes than physical cores.
 
-Step 3: Execute the command
+# Prepare Dataset and HOOMD-blue Configuration
+
+## Get Dataset and Model files
+
+The HOOMD-blue module files are available in the shared storage directory
 ```
-echo ${cmd}   # Prints the command for verification
-exec ${cmd}   # Executes the MPI job
 ```
 
-# Test Methods
-1. Scalability Tests: Run the script with varying numbers of nodes and processes to test scalability. For example, change NCPUS or ngpus and track the performance impact.
-2. Warm-up Testing: Ensure that the warm-up steps are long enough to allow the system to reach stable performance, particularly in simulations with complex initialization.
-3. Cross-validation: Run the same job with different configurations and compare the results. This can identify issues caused by specific parameters.
-4. Benchmarking: Regularly test different system configurations by varying the number of nodes, GPUs, and CPUs.
+## Configuring parameters
+Please refer to [submit_job_hoomd.txt](https://github.com/anishumairaa/HPC-AI-UPM-Team-3/blob/main/script_job_output_logs/submit_job_hoomd.txt)
+This command is used for configuring initialization parameters such as number of nodes, number of CPUs, benchmark step, warmup step and walltime.
+
+## Read results
+Methods to read output file
+`cat hoomd.nodes32.WS10000.BS8000.o126506599`
+
+Check time steps per second
+`grep “time steps per second” ${HOME}/run/hoomd.* -r`
+
+## Testing Methods
+1. Refer to the configuration instructions to set up the environment.  
+2. Create `hoomd.sh` script in `cd $HOME/run`  
+3. Submit job command using the `submit_job_hoomd.txt`  
+4. Read output file and check time steps per second as mentioned ealier.
