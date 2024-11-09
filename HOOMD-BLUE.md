@@ -150,7 +150,19 @@ This project uses parallel computing to simulate particle movements with High-Pe
 - Balances speed and resource use for optimal performance, achieving a good trade-off between performance gains and resource efficiency.
 
 
-advantages of your codes  
+## Advantages of the Modified Code
+
+- Improved Scalability: The modified code utilizes up to 32 nodes, and the distribution of a load is effective, enabling a system to easily handle high workloads. It allows significant improvement in computational performance.
+
+- Improved Execution Time: The code optimizes walltime, nodes, and benchmark settings in such a way that execution time goes down as low as 14 seconds from 55 seconds while node count scales up, showing decent improvement in speed.
+
+- Efficient Resource Allocation: This will perform dynamic memory and CPU allocation with respect to node count for efficiency while keeping memory utilization proportional to the computational load.
+
+- Flexible Benchmarking: The code provides flexibility in benchmarking by allowing the warm-up and benchmark step to be changed, testing for a wide range of workloads/scenarios from high-intensity benchmarking to a fast test with less initialization overhead.
+
+- Performance Analysis: Since the setup of the code will enable easy gathering and analysis of performance data, it will provide a complete comparative analysis between configurations.
+
+
 instructions for result reproduction
 
 # Configuration Instructions
