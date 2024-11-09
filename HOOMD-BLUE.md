@@ -43,5 +43,9 @@ advantages of your codes
 instructions for result reproduction
 
 # Configuration Instructions
+Step 1: Load Required Modules
+---
+module purge
+module load ${HOME}/hpcx-v2.20-gcc-mlnx_ofed-redhat8-cuda12-x86_64/modulefiles/hpcx-ompi
 
 # Test Methods
