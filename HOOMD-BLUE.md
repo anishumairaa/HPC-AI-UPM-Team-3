@@ -30,7 +30,7 @@ This project is based on https://github.com/hpcac/2024-APAC-HPC-AI
 | 32 x 2           | 48 x 32             | 1536        | 1536                   | 0:14          | 494.79           | 6431             |
 
 ## Result Analysis 
-The steps per second increases substantially with the increased number of nodes:
+The steps per second increases substantially with a higher number of nodes:
   - 1 node, 48 cores: 423 steps per seconds
   - 32 nodes, 1536 cores: 6431 steps per second
 
@@ -38,7 +38,7 @@ The execution time decreases as more nodes were added:
   - 1 node, 48 cores: 55 seconds
   - 32 nodes, 1536 cores: 14 seconds
 
-The simulation speed increases as the total cores increases:
+The simulation speed increases with the total number of cores:
   - 1 node, 48 cores: 1.00s
   - 32 nodes, 1536 cores: 3.93s
 
