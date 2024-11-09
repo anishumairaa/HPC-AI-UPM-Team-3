@@ -90,9 +90,42 @@ advantages of your codes
 instructions for result reproduction
 
 # Configuration Instructions
-Step 1: Load Required Modules
----
+Step 1: Setting Up the Environment
+```
 module purge
 module load ${HOME}/hpcx-v2.20-gcc-mlnx_ofed-redhat8-cuda12-x86_64/modulefiles/hpcx-ompi
+```
+Purpose: Purging clears the environment, and loading hpcx-ompi includes MPI, GCC, and network support libraries needed for HPC applications.
+
+Step 2: Constructing and Running the MPI Command
+```
+hosts=$(sort -u ${PBS_NODEFILE} | paste -sd ',')
+cmd="time mpirun \
+    -host ${hosts} \
+    -wdir ${HOME}/scratch/workdir/hoomd \
+    -output-filename ${HOME}/run/output/${PBS_JOBNAME}.${PBS_JOBID} \
+    -map-by ppr:$((1*${NCPUS})):node \
+    -oversubscribe -use-hwthread-cpus \
+    -x PYTHONPATH=${HOME}/scratch/workdir/hoomd/build/hoomd-openmpi4.1.5:${HOME}/scratch/workdir/hoomd/hoomd-benchmarks \
+    ${HOME}/scratch/workdir/hoomd/build/hoomd_executable \
+    --device CPU -v \
+    -N ${N} --repeat ${repeat} \
+    --warmup_steps ${warmup_steps} --benchmark_steps ${benchmark_steps}"
+```
+- host ${hosts}: Lists the nodes available for the job.
+- wdir: Sets the working directory.
+- output-filename: Directs output to a unique file.
+- map-by ppr:$((1*${NCPUS})):node: Maps one process per core.
+- oversubscribe -use-hwthread-cpus: Allows using more processes than physical cores.
+
+Step 3: Execute the command
+```
+echo ${cmd}   # Prints the command for verification
+exec ${cmd}   # Executes the MPI job
+```
 
 # Test Methods
+1. Scalability Tests: Run the script with varying numbers of nodes and processes to test scalability. For example, change NCPUS or ngpus and track the performance impact.
+2. Warm-up Testing: Ensure that the warm-up steps are long enough to allow the system to reach stable performance, particularly in simulations with complex initialization.
+3. Cross-validation: Run the same job with different configurations and compare the results. This can identify issues caused by specific parameters.
+4. Benchmarking: regularly test different system configurations by varying the number of nodes, GPUs, and CPUs.
