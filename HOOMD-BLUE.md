@@ -37,7 +37,12 @@ echo ${cmd}
 exec ${cmd}
 
 ```
-## Submit job
+
+# Modifications to the code 
+The number of nodes, walltime configuration,warmup steps and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration
+
+## Our code Vs Base code
+
 ```
 cd ${HOME}/run
 
@@ -50,8 +55,7 @@ bash -c \
 hoomd.sh'
 ```
 
-# Modifications to the code 
-The number of nodes, walltime configuration, and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration
+We increase the value of the walltime used,warmup steps and benchmark steps by using different number of nodes for each job and compare their optimization
 
 ```
 nodes=32 walltime=00:10:00 \
