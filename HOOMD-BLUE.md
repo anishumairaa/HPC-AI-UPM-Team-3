@@ -1,6 +1,6 @@
 # Base Code
 This project is based on https://github.com/hpcac/2024-APAC-HPC-AI  
-We're using GCC as a compiler for this project
+GCC is being utilized as the compiler for this project
 
 ## PBS Script
 ```
@@ -51,7 +51,22 @@ hoomd.sh'
 ```
 
 # Modifications to the code 
-The number of nodes, walltime configuration, and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration.
+The number of nodes, walltime configuration, and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration
+
+```
+nodes=32 walltime=00:10:00 \
+warmup_steps=10000 benchmark_steps=8000 repeat=1 N=200000 \
+bash -c \
+'qsub -V \
+-l walltime=${walltime},ncpus=$((48*nodes)),mem=$((48*nodes*1))gb \
+-N hoomd.nodes${nodes}.WS${warmup_steps}.BS${benchmark_steps} \
+hoomd.sh'
+
+```
+```
+cat hoomd.nodes32.WS10000.BS8000.o126506599
+```
+
 
 
 # Reference Results
