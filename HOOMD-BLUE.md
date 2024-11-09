@@ -42,6 +42,12 @@ exec ${cmd}
 The number of nodes, walltime configuration,warmup steps and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration
 
 ## Our code Vs Base code
+These code are the base code according to our reference on https://github.com/hpcac/2024-APAC-HPC-AI  
+
+This configuration allocates:
+- 8 nodes with customized walltime to accommodate the required computational intensity.
+- A higher warmup step count (40000) and benchmark step count (80000) to ensure the benchmarking tests adequately stabilize and yield representative performance data.
+- Memory and CPU allocation based on nodes to utilize available processing power efficiently.
 
 ```
 cd ${HOME}/run
@@ -55,7 +61,9 @@ bash -c \
 hoomd.sh'
 ```
 
-We increase the value of the walltime used,warmup steps and benchmark steps by using different number of nodes for each job and compare their optimization
+We increase the value of the walltime used,warmup steps and benchmark steps by using different number of nodes for each job and compare their optimization.
+
+This setup deploys 32 nodes with a moderate increase in walltime and reduced warmup and benchmark steps, optimizing resource usage with fewer initialization steps and leveraging a larger node allocation to assess scaling efficiency.
 
 ```
 nodes=32 walltime=00:10:00 \
@@ -67,6 +75,9 @@ bash -c \
 hoomd.sh'
 
 ```
+
+The cat ```hoomd.nodes32.WS10000.BS8000.o126506599``` command is then used to retrieve the output of the submitted job, providing detailed performance metrics for analysis of node scalability and computational efficiency in achieving optimal time steps per second.
+
 ```
 cat hoomd.nodes32.WS10000.BS8000.o126506599
 ```
