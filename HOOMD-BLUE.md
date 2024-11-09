@@ -29,14 +29,24 @@ This project is based on https://github.com/hpcac/2024-APAC-HPC-AI
 | 16 x 2           | 48 x 16             | 768         | 768                    | 0:14          | 249.8            | 4831             |
 | 32 x 2           | 48 x 32             | 1536        | 1536                   | 0:14          | 494.79           | 6431             |
 
-## Computing/Training/Throughput Performances  
-The speed increases substantially with the increased number of nodes:
+## Result Analysis 
+The steps per second increases substantially with the increased number of nodes:
   - 1 node, 48 cores: 423 steps per seconds
   - 32 nodes, 1536 cores: 6431 steps per second
 
 The execution time decreases as more nodes were added:
-  - 1 node: 55 seconds
-  - 32 nodes: 14 seconds
+  - 1 node, 48 cores: 55 seconds
+  - 32 nodes, 1536 cores: 14 seconds
+
+The simulation speed increases as the total cores increases:
+  - 1 node, 48 cores: 1.00s
+  - 32 nodes, 1536 cores: 3.93s
+
+The system becomes less efficient as more cores are added:
+  - 1 node, 48 cores: 0.02
+  - 32 nodes, 1536 cores: 0.003
+
+In summary, while scaling up the number of nodes and cores yields substantial performance gains in speed and execution time, the efficiency per core decreases, suggesting that beyond a certain point, adding more resources may provide limited benefits compared to the cost in system resources.
 
 improvements  
 advantages of your codes  
