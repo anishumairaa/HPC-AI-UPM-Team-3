@@ -1,6 +1,7 @@
 # Base Code
 This project is based on https://github.com/hpcac/2024-APAC-HPC-AI  
-GCC is being utilized as the compiler for this project
+We copied baseline code from that github link, and changed the pbs initializations such as project code and email address. GCC is being utilized as the compiler for this project.  
+The copied `hoomd.sh` with this content:
 
 ## PBS Script
 ```
