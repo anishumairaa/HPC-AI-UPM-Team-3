@@ -201,10 +201,10 @@ Please refer to [submit_job_hoomd.txt](https://github.com/anishumairaa/HPC-AI-UP
 This command is used for configuring initialization parameters such as number of nodes, number of CPUs, benchmark step, warmup step and walltime.
 
 ## Read results
-Methods to read output file
+Methods to read output file  
 `cat hoomd.nodes32.WS10000.BS8000.o126506599`
 
-Check time steps per second
+Check time steps per second  
 `grep “time steps per second” ${HOME}/run/hoomd.* -r`
 
 ## Testing Methods
