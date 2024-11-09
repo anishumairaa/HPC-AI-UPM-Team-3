@@ -3,7 +3,7 @@
 
 ```
 #!/bin/bash
-#PBS -j oe
+#PBS -j oe  
 #PBS -M 216990@student.upm.edu.my,214928@student.upm.edu.my,215541@student.upm.edu.my,215014@student.upm.edu.my,214511@student.upm.edu.my
 #PBS -m abe
 #PBS -P zd64
@@ -41,7 +41,7 @@ nodes=32 walltime=00:10:00 \
 warmup_steps=10000 benchmark_steps=8000 repeat=1 N=200000 \
 bash -c \
 'qsub -V \
--l walltime=${walltime},ncpus=$((96*nodes)),mem=$((48*nodes*1))gb \
+-l walltime=${walltime},ncpus=$((48*nodes)),mem=$((48*nodes*1))gb \
 -N hoomd.nodes${nodes}.WS${warmup_steps}.BS${benchmark_steps} \
 hoomd.sh'
 ```
