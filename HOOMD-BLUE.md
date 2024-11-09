@@ -117,9 +117,24 @@ The system becomes less efficient as more cores are added:
   - 1 node, 48 cores: 0.02
   - 32 nodes, 1536 cores: 0.003
 
-In summary, while scaling up the number of nodes and cores yields substantial performance gains in speed and execution time, the efficiency per core decreases, suggesting that beyond a certain point, adding more resources may provide limited benefits compared to the cost in system resources.
+# Improvements
+This project uses parallel computing to simulate particle movements with High-Performance Computing (HPC) for greater efficiency. Key improvements include:
 
-improvements  
+## 1. Enhanced Performance with Increased Nodes and Cores
+- **Speed and Execution Time:** Increasing nodes and cores leads to faster steps per second and reduced execution time. This shows effective parallel processing, allowing more tasks to complete quickly.
+  
+- **Trade-off in Efficiency:** While speed increases with more cores, individual core efficiency decreases due to the coordination required among processors. This is a common trade-off in parallel computing.
+
+## 2. Improved Scalability
+- The system supports up to 32 nodes, managing larger workloads effectively. However, efficiency slightly declines at high core counts due to increased communication overhead among cores.
+
+## 3. Optimized Resource Allocation and Memory Management
+- Memory was allocated based on node and core requirements, scaling from 48 GB to 1536 GB to handle large-scale tasks smoothly. This ensures the system can operate reliably for intensive simulations.
+
+## 4. Resource Optimization
+- Balances speed and resource use for optimal performance, achieving a good trade-off between performance gains and resource efficiency.
+
+
 advantages of your codes  
 instructions for result reproduction
 
