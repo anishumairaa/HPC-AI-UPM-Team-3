@@ -50,7 +50,9 @@ bash -c \
 hoomd.sh'
 ```
 
-# Modifications to the code
+# Modifications to the code 
+The number of nodes, walltime configuration, and benchmark steps were adjusted to optimize performance, allowing for a comparative analysis of the results to identify the most efficient configuration.
+
 
 # Reference Results
 ## Performance Metrics
