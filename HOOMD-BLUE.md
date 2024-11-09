@@ -80,7 +80,7 @@ cat hoomd.nodes32.WS10000.BS8000.o126506599
 - Speedup: This measures how much faster a task completes when multiple processors are used compared to using a single processor
 - Efficiency: This measures how effectively the processors are being used in parallel
 
-# Value initialization
+## Value initialization
 | Number of nodes | Number of cores used | Warmup/Benchmark   | Walltime Requested | Memory Requested |
 |------------------|----------------------|--------------------|--------------------|------------------|
 | 1 x 2            | 48 x 1              | 40,000/80,000      | 10 mins            | 48GB             |
