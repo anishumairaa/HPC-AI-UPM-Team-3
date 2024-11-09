@@ -158,4 +158,4 @@ exec ${cmd}   # Executes the MPI job
 1. Scalability Tests: Run the script with varying numbers of nodes and processes to test scalability. For example, change NCPUS or ngpus and track the performance impact.
 2. Warm-up Testing: Ensure that the warm-up steps are long enough to allow the system to reach stable performance, particularly in simulations with complex initialization.
 3. Cross-validation: Run the same job with different configurations and compare the results. This can identify issues caused by specific parameters.
-4. Benchmarking: regularly test different system configurations by varying the number of nodes, GPUs, and CPUs.
+4. Benchmarking: Regularly test different system configurations by varying the number of nodes, GPUs, and CPUs.
